@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian 2.0 | Blender to Godot Pipeline</title>
+    <meta name="description" content="The Ultimate Blender to Godot addon. Featuring preprocessing, lightmapping workflows, livelinking, desktop/XR pipelines, postprocessing, reflection probes, and sky toolkits.">
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="glow-bg blue"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Meridian Logo" id="nav-logo" onerror="this.src=''; this.alt='MERIDIAN 2.0';" style="font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px; font-family: var(--font-heading);">
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#showcase">Showcase</a>
+                <a href="https://patreon.com/naxela" target="_blank" rel="noopener">Support</a>
+                <a href="#download" class="btn-primary-small">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="stagger-up">The Ultimate <span class="text-gradient">Blender to Godot</span> Pipeline</h1>
+                <p class="stagger-up delay-1">Meridian 2.0 brings revolutionary livelinking, advanced rendering toolkits, and seamless workflows straight from Blender to the Godot Engine.</p>
+                <div class="cta-group stagger-up delay-2">
+                    <a href="#download" class="btn-primary">Download Addon</a>
+                    <a href="#features" class="btn-secondary">Explore Features</a>
+                </div>
+            </div>
+            <div class="hero-visual stagger-up delay-3">
+                <div class="glass-panel main-presentation tilt-card">
+                    <img src="assets/screenshot.png" alt="Meridian UI in Godot" class="hero-screenshot" onerror="this.outerHTML='<div class=\'placeholder-ui\'><div class=\'mock-header\'></div><div class=\'mock-body\'></div><div class=\'placeholder-text\'>Add assets/screenshot.png</div></div>'">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Version 2.0 Features</h2>
+            <div class="features-grid">
+                
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-preprocessing.webp" alt="Preprocessing" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">⚡</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Preprocessing</h3>
+                        <p>A background process that automatically optimizes your meshes and textures directly inside Godot for peak performance.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-lightmapping.webp" alt="Lightmapping" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">💡</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Lightmapping Workflow</h3>
+                        <p>Includes a custom NaxPlus shader supporting arbitrary lightmap resolutions for your environments, overriding default limits.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-linking.webp" alt="Linking" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">🔄</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Basic Linking</h3>
+                        <p>Realtime TCP livelinking from Blender to Godot. Starts unidirectional with deeper material and light sync planned for the future.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-desktop.webp" alt="Desktop Pipeline" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">🖥️</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Desktop Pipeline</h3>
+                        <p>Full support for a robust desktop pipeline. Export directly to binaries without ever opening the Godot editor manually.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-xr.webp" alt="XR Pipeline" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">🥽</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Basic XR Pipeline</h3>
+                        <p>Jump directly into spatial computing with zero hassle using our seamlessly integrated XR setup tools.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-postprocess.webp" alt="Postprocessing" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">✨</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Postprocessing</h3>
+                        <p>Includes NaxPost suite: Tilt Shift, Colorgrading, Chromatic Aberration, Sharpen, Vignette, and Camera Motion-Blur.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-reflections.webp" alt="Reflections" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">🪞</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Reflection Probes</h3>
+                        <p>Seamless implementation and export support for generating Godot reflection probes directly from your 3D scene.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card tilt-card fade-in">
+                    <div class="feature-visual">
+                        <img src="assets/anim-sky.webp" alt="Sky Toolkit" class="feature-anim" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-anim"><div class="card-icon">🌌</div></div>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Sky Toolkit</h3>
+                        <p>Take control of your environment with the advanced Preetham sky model. Includes virtual/mesh versions perfectly crafted for celestial bodies.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase" class="showcase-section">
+        <div class="container showcase-content fade-in">
+            <div class="showcase-text">
+                <h2 class="section-title text-left">Powerful Exporter Interface</h2>
+                <p>Configure everything from renderer settings to publish platforms seamlessly. Meridian integrates wonderfully into your daily workflow, saving hours of manual setup.</p>
+                <ul class="feature-list">
+                    <li><span class="check-icon">✓</span> Easy project initialization</li>
+                    <li><span class="check-icon">✓</span> One-click compile & play</li>
+                    <li><span class="check-icon">✓</span> Deep material and lightmapper integration</li>
+                </ul>
+            </div>
+            <div class="showcase-image glass-panel tilt-card fade-in delay-1">
+                 <img src="assets/screenshot.png" alt="Meridian Exporter Settings" onerror="this.outerHTML='<div class=\'placeholder-ui tall\'><div class=\'mock-header\'></div><div class=\'mock-list\'></div><div class=\'placeholder-text\'>Add assets/screenshot.png</div></div>'">
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="cta-section">
+        <div class="container text-center fade-in">
+            <h2>Ready to transform your pipeline?</h2>
+            <p>Download the latest version of Meridian and experience the ultimate bridge between Blender and Godot.</p>
+            <a href="assets/meridian-addon.zip" class="btn-primary large mt-4" download>Download Meridian 2.0</a>
+            <p class="sub-text mt-2">Addon provided directly within the assets folder after setup.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                 <img src="assets/logo.png" alt="Meridian" height="40" onerror="this.outerHTML='<strong style=\'font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: -0.5px;\'>MERIDIAN <span class=\'text-gradient\'>2.0</span></strong>'">
+            </div>
+            <div class="footer-links">
+                <a href="#">Github</a>
+                <a href="#">Documentation</a>
+                <a href="https://patreon.com/naxela" target="_blank" rel="noopener">Support on Patreon</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Meridian Contributors. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

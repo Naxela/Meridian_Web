@@ -1,0 +1,50 @@
+name: Deploy Main Site and Wiki
+
+on:
+  push:
+    branches:
+      - main # Update if your default branch is something else (like "master")
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: Build Docs
+        run: mkdocs build
+        
+      # mkdocs build creates a "site" folder containing the documentation. 
+      # We want to deploy the landing page files at the root, AND the mkdocs under "/docs"
+      - name: Prepare Deployment Folder
+        run: |
+          mkdir deploy_folder
+          
+          # Copy your existing landing page files (these files must be checked into git)
+          if [ -f "index.html" ]; then cp index.html deploy_folder/; fi
+          if [ -f "styles.css" ]; then cp styles.css deploy_folder/; fi
+          if [ -f "script.js" ]; then cp script.js deploy_folder/; fi
+          if [ -d "assets" ]; then cp -r assets deploy_folder/; fi
+          
+          # Copy the generated wiki into the /docs subfolder
+          mv site deploy_folder/docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy_folder
+          # This pushes the combined result to the "gh-pages" branch, which GitHub Pages uses.
+          force_orphan: true
